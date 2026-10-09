@@ -4,45 +4,46 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Livino Arga Pratama</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&family=Inter:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&family=Inter:wght@300&display=swap" rel="stylesheet">
 <style>
-  body { margin:0; background:#000; color:#fff; font-family:'Cormorant Garamond', serif; display:flex; justify-content:center; align-items:center; min-height:100vh; text-align:center; }
-  .box { padding:30px; }
-  h1 { font-size:65px; letter-spacing:12px; line-height:1.1; font-weight:300; margin:0; }
-  .sub { font-family:'Inter', sans-serif; letter-spacing:5px; color:#888; font-size:14px; margin-top:15px; font-weight:300; }
-  .line { width:90%; height:1px; background:#222; margin:60px auto 30px; }
-  .quote { font-style:italic; color:#777; font-size:18px; margin-bottom:40px; }
-  .link { font-family:'Inter', sans-serif; color:#444; font-size:13px; letter-spacing:1px; }
-  #musicBtn { margin-top:30px; background:none; border:1px solid #333; color:#666; padding:10px 25px; letter-spacing:3px; font-size:11px; cursor:pointer; font-family:'Inter', sans-serif; }
+  body { margin:0; background:#000; color:#fff; font-family:'Cormorant Garamond', serif; min-height:100vh; display:flex; justify-content:center; align-items:center; text-align:center; overflow:hidden; }
+  .bg { position:fixed; inset:0; background:url('https://i.imgur.com/8QJ4sQz.jpeg') center/cover no-repeat; opacity:0.25; filter:grayscale(100%); z-index:-1; }
+  .box { padding:30px; max-width:400px; }
+  h1 { font-size:60px; letter-spacing:12px; line-height:1; font-weight:300; margin:0; }
+  .sub { font-family:'Inter', sans-serif; letter-spacing:5px; color:#888; font-size:13px; margin-top:15px; }
+  .line { width:100%; height:1px; background:#222; margin:40px auto 25px; }
+  .quote { font-style:italic; color:#777; font-size:17px; min-height:40px; }
+  #musicBtn { margin-top:30px; background:rgba(255,255,255,0.05); border:1px solid #333; color:#aaa; padding:12px 30px; letter-spacing:3px; font-size:11px; cursor:pointer; font-family:'Inter', sans-serif; border-radius:20px; backdrop-filter:blur(10px); }
   #musicBtn:hover { border-color:#fff; color:#fff; }
+  #player { position:absolute; width:1px; height:1px; opacity:0; pointer-events:none; }
 </style>
 </head>
 <body>
+<div class="bg"></div>
+<div id="player"></div>
+
 <div class="box">
   <h1>LIVINO<br>ARGA</h1>
   <div class="sub">Pratama — Iko Enterprise</div>
   <div class="line"></div>
-  <div class="quote">"Manusia itu paling jujur pas lagi sendirian."</div>
-  <div class="link">github.com/ikoenterprise-cmd</div>
-  <button id="musicBtn" onclick="toggleMusic()">▶ PLAY MUSIC</button>
+  <div class="quote" id="quote">Toss your dirty shoes in my washing machine heart...</div>
+  <button id="musicBtn" onclick="toggleMusic()">▶ PLAY - Washing Machine Heart</button>
+  <div style="margin-top:20px; font-family:'Inter'; font-size:10px; color:#444; letter-spacing:2px;">Mitski</div>
 </div>
 
-<audio id="bgMusic" loop preload="auto">
-  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-</audio>
-
+<script src="https://www.youtube.com/iframe_api"></script>
 <script>
-  const music = document.getElementById("bgMusic");
-  const btn = document.getElementById("musicBtn");
-  let isPlaying = false;
-  function toggleMusic(){
-    if(!isPlaying){
-      music.volume = 0.3;
-      music.play().then(()=>{ btn.innerText="■ STOP MUSIC"; isPlaying=true; }).catch(()=>{ alert("Klik sekali lagi Vin, browser butuh izin dulu"); });
-    } else {
-      music.pause(); btn.innerText="▶ PLAY MUSIC"; isPlaying=false;
-    }
+  let player; let isPlaying=false;
+  function onYouTubeIframeAPIReady(){
+    player = new YT.Player('player', {
+      height: '1', width: '1',
+      videoId: '2OEL4P1Fl-A',
+      playerVars: { loop:1, playlist:'2OEL4P1Fl-A' },
+      events: { 'onReady': ()=>{ console.log("ready"); } }
+    });
   }
-</script>
-</body>
-</html>
+  function toggleMusic(){
+    const btn=document.getElementById("musicBtn");
+    if(!isPlaying){
+      player.playVideo(); player.setVolume(70);
+      btn.innerText="■ STOP MUSIC";
