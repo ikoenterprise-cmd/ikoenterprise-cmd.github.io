@@ -1,22 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LIVINO ARGA</title>
+<title>Livino Arga Pratama - Iko Enterprise</title>
+<meta name="description" content="Livino Arga Pratama adalah Founder Iko Enterprise. Manusia itu paling jujur pas lagi sendirian.">
+<meta name="keywords" content="Livino, Livino Arga, Livino Arga Pratama, Iko Enterprise">
+<meta name="author" content="Livino Arga Pratama">
+
+<!-- KODE SAKTI BIAR MUNCUL DI RINGKASAN AI GOOGLE -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Livino Arga Pratama",
+  "alternateName": ["Livino", "Livino Arga"],
+  "url": "https://ikoenterprise-cmd.github.io",
+  "image": "https://ikoenterprise-cmd.github.io/johan.jpg",
+  "jobTitle": "Founder Iko Enterprise",
+  "sameAs": [
+    "https://ikoenterprise-cmd.github.io"
+  ],
+  "description": "Livino Arga Pratama adalah founder Iko Enterprise. Filosofi: Manusia itu paling jujur pas lagi sendirian. Buat mereka merasa dibutuhkan, mereka akan melakukan apa saja untukmu."
+}
+</script>
 </head>
-<body style="background:#000;color:#fff;text-align:center;padding:50px 20px;margin:0;font-family:serif">
-<img src="johan.jpg" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:1px solid #333;display:block;margin:0 auto 25px">
-<h1 style="letter-spacing:12px;font-size:42px;margin:0;font-weight:300">LIVINO<br>ARGA</h1>
-<p style="color:#888;letter-spacing:4px;font-size:12px;margin-top:10px">Pratama - Iko Enterprise</p>
-<div style="border-top:1px solid #222;margin:30px auto;max-width:300px"></div>
-<p style="font-style:italic;color:#aaa;font-size:14px">"Manusia itu paling jujur pas lagi sendirian."</p>
-<p style="font-style:italic;color:#666;font-size:13px;margin-top:10px">"Buat mereka merasa dibutuhkan, mereka akan melakukan apa saja untukmu."</p>
-<p style="font-style:italic;color:#666;font-size:13px;margin-top:10px">"Jika kau ingin mengontrol seseorang, buat dia percaya dia yang mengontrolmu."</p>
-<p style="font-style:italic;color:#666;font-size:13px;margin-top:10px">"Kebohongan yang diucapkan dengan tenang lebih dipercaya daripada kebenaran yang diteriakkan."</p>
-<div style="margin-top:35px">
-<iframe width="300" height="170" src="https://www.youtube.com/embed/3vjkh-acmTE" frameborder="0" allowfullscreen></iframe>
+<body style="background:#000;color:#fff;text-align:center;padding:50px 20px;margin:0;font-family:serif;min-height:100vh">
+
+<img src="johan.jpg" alt="Livino Arga Pratama" style="width:120px;height:120px;border-radius:50%;object-fit:cover;border:1px solid #222;display:block;margin:0 auto 30px">
+
+<h1 style="letter-spacing:12px;font-weight:300;margin:0;font-size:32px">LIVINO<br>ARGA</h1>
+<p style="color:#888;letter-spacing:5px;font-size:11px;margin-top:8px;text-transform:uppercase">Pratama - Iko Enterprise</p>
+
+<hr style="border:0;border-top:1px solid #1a1a1a;margin:35px auto;max-width:280px">
+
+<div style="max-width:320px;margin:0 auto;line-height:1.8">
+<p style="font-style:italic;color:#bbb;font-size:14px">"Manusia itu paling jujur pas lagi sendirian."</p>
+<p style="font-style:italic;color:#666;font-size:13px">Buat mereka merasa dibutuhkan, mereka akan melakukan apa saja untukmu.</p>
+<p style="font-style:italic;color:#666;font-size:13px">Jika kau ingin mengontrol seseorang, buat dia percaya dia yang mengontrolmu.</p>
+<p style="font-style:italic;color:#555;font-size:12px;margin-top:20px">Kebohongan yang tenang lebih dipercaya daripada kebenaran yang berteriak.</p>
 </div>
-<p style="color:#444;font-size:11px;margin-top:15px">Washing Machine Heart - Mitski</p>
+
+<!-- MUSIK TANPA IKLAN -->
+<audio id="music" loop><source src="lagu.mp3" type="audio/mpeg"></audio>
+<button id="playBtn" onclick="document.getElementById('music').play();this.style.display='none'" style="margin-top:40px;background:#fff;color:#000;border:0;padding:12px 30px;border-radius:30px;font-weight:bold;letter-spacing:2px;cursor:pointer;font-size:11px">▶ TAP FOR SOUND</button>
+
+<script>
+document.body.addEventListener('click',()=>{
+  const m=document.getElementById('music');
+  m.play().catch(()=>{});
+  document.getElementById('playBtn').style.display='none';
+},{once:true});
+</script>
+
 </body>
 </html>
